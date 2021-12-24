@@ -1,0 +1,33 @@
+﻿
+
+<div class="bg-light border p-2 col-5">
+    <h4 class="text-secondary">Libro: @book.Id</h4>
+    @book.bookName <br />
+    @book.price.ToString("") <br />
+    <input type="checkbox" @bind-value="book.stock" checked="@(book.stock?"Checked":null)" /> Esta Agotado
+    <br />
+    <span>Este Libro esta : @(book.stock ?"Agotado":"Disponible")</span>
+    @if (!book.stock)
+    {
+
+        @foreach (var booktype in book.bookType)
+        {
+            <p>@booktype.Name - @booktype.value </p>
+        }
+    }
+
+    @*<input type="button" name="name" class="btn btn-danger" value="Delete" />
+
+        <input type="button" name="name" class="btn btn-success" value="Edit" />*@
+    <ButtonsComponents EsAdmin="true"></ButtonsComponents>
+
+</div>
+
+
+@code {
+
+    [Parameter]
+
+    public BookBlazor book { get; set; }
+
+}

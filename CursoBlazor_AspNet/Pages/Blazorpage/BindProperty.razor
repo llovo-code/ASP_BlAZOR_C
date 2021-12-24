@@ -1,0 +1,158 @@
+﻿@page "/propertyBind"
+
+
+<div class="bg-light border p-2">
+    <h2 class="bg-light border p-2">
+        first book
+    </h2>
+
+    Libro :@book.bookName
+    <br />
+    Price : @book.price
+    <br />
+
+
+    Esta Agotado
+    <br />
+    <span>Este Libro esta : @(book.stock ?"Agotado":"Disponible")</span>
+
+
+    <select @bind="selectedBookType">
+
+        @foreach (var typeBook in book.bookType)
+        {
+
+            <option value="@typeBook.Name">@typeBook.Name</option>
+
+
+
+        }
+    </select>
+
+    <span>El tipo de Libro es: @selectedBookType</span>
+
+</div>
+
+<div>
+    <br />
+    <h2 class="text-info">Lista de Libros</h2>
+
+    <table class="table table-dark">
+       
+        @*<thead>
+                <tr>
+                    <th>
+                        id
+                    </th>
+                    <th>
+                        Nombre
+                    </th>
+                    <th>
+                        Precio
+                    </th>
+                    <th>
+                        id
+                    </th>
+                    <th>
+                        id
+                    </th>
+                </tr>
+            </thead>*@
+        <tbody>
+
+                   @foreach (var book in BookList)
+                   {
+                   <tr>
+                       <td>
+                           <input type="text" name="name" @bind-value="book.bookName" @bind-value:event="oninput" />
+                       </td>
+
+                       <td>
+                           <input type="text" name="name" @bind-value="book.price" @bind-value:event="oninput" />
+                       </td>
+                       @foreach (var booktype in book.bookType)
+                       {
+                           <td>
+                               @booktype.Name - @booktype.value
+                           </td>
+                       }
+                   </tr>
+
+                   }
+               </tbody>
+            </table>
+
+            <br />
+
+            @foreach(var book in BookList)
+                    {
+                        <p>@book.bookName tiene un precio de @book.price</p>
+                    }
+        </div>
+
+
+        @code{
+            string selectedBookType = "";
+            List<Models.BookBlazor> BookList = new List<Models.BookBlazor>();
+            Models.BookBlazor book = new Models.BookBlazor()
+            {
+                Id = 1,
+                bookName = "C# Basic",
+                price = 39,
+
+                stock = true,
+                bookType = new List<Models.BookType>()
+                    {
+                        new Models.BookType {Id=1,Name="Programming",value="10"},
+                        new Models.BookType {Id=1,Name="Desing",value="10"},
+                        new Models.BookType {Id=1,Name="Data Analitycs",value="10"},
+                        new Models.BookType {Id=1,Name="IA",value="10"}
+
+                    }
+            };
+
+            protected override void OnInitialized()
+            {
+                base.OnInitialized();
+                BookList.Add(new Models.BookBlazor()
+                {
+                    Id = 101,
+                    bookName = "C# Basic",
+                    price = 39,
+
+                    stock = true,
+                    bookType = new List<Models.BookType>()
+                    {
+                        new Models.BookType {Id=1,Name="Programming",value="10"},
+                        new Models.BookType {Id=1,Name="Desing",value="10"},
+                        new Models.BookType {Id=1,Name="Data Analitycs",value="10"},
+                        new Models.BookType {Id=1,Name="IA",value="10"}
+
+                    }
+
+
+                });
+
+
+                BookList.Add(new Models.BookBlazor()
+                {
+                    Id = 102,
+                    bookName = "C# Advance",
+                    price = 68,
+
+                    stock = true,
+                    bookType = new List<Models.BookType>()
+                    {
+                        new Models.BookType {Id=1,Name="Programming",value="10"},
+                        new Models.BookType {Id=1,Name="Desing",value="10"},
+                        new Models.BookType {Id=1,Name="Data Analitycs",value="10"},
+                        new Models.BookType {Id=1,Name="IA",value="10"}
+
+                    }
+
+
+
+                });
+            }
+
+        }

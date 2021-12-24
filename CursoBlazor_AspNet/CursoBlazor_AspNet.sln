@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32002.261
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CursoBlazor_AspNet", "CursoBlazor_AspNet.csproj", "{ECAB8E0C-B6B9-42CD-B300-FE5A539416B0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{ECAB8E0C-B6B9-42CD-B300-FE5A539416B0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ECAB8E0C-B6B9-42CD-B300-FE5A539416B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ECAB8E0C-B6B9-42CD-B300-FE5A539416B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ECAB8E0C-B6B9-42CD-B300-FE5A539416B0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A259E68B-6169-4F94-A3A8-839EE3D37E24}
+	EndGlobalSection
+EndGlobal

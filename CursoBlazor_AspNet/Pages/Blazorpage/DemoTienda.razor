@@ -1,0 +1,66 @@
+﻿@page "/demoTienda"
+
+
+<div class="border p-2 mt-2 " style="background-color:azure">
+
+    <h2 class="text-info">Lista de Libros</h2>
+
+    <div class="row container">
+        @foreach (var book in BookList)
+        {
+            <OnlyBook book="@book"></OnlyBook>
+        }
+    </div>
+</div>
+
+@code {
+
+
+
+    List<Models.BookBlazor> BookList = new List<Models.BookBlazor>();
+
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+        BookList.Add(new Models.BookBlazor()
+        {
+            Id = 101,
+            bookName = "C# Basic",
+            price = 39,
+
+            stock = true,
+            bookType = new List<Models.BookType>()
+                {
+                        new Models.BookType {Id=1,Name="Programming",value="10"},
+                        new Models.BookType {Id=1,Name="Desing",value="10"},
+                        new Models.BookType {Id=1,Name="Data Analitycs",value="10"},
+                        new Models.BookType {Id=1,Name="IA",value="10"}
+                       
+
+                    }
+
+
+        });
+
+
+        BookList.Add(new Models.BookBlazor()
+        {
+            Id = 102,
+            bookName = "C# Advance",
+            price = 68,
+
+            stock = true,
+            bookType = new List<Models.BookType>()
+                {
+                        new Models.BookType {Id=1,Name="Programming",value="10"},
+                        new Models.BookType {Id=1,Name="Desing",value="10"},
+                        new Models.BookType {Id=1,Name="Data Analitycs",value="10"},
+                        new Models.BookType {Id=1,Name="IA",value="10"}
+
+                    }
+
+
+
+        });
+    }
+}
